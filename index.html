@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>PokeDexius - Tu Pokédex Online</title>
+    <meta name="title" content="PokeDexius - Tu Pokédex Online" />
+    <meta name="description" content="Descubre, busca y explora todos los Pokémon en una experiencia rápida, visual e interactiva. ¡Tu aventura Pokémon comienza aquí!" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://metatags.io/" />
+    <meta property="og:title" content="PokeDexius - Tu Pokédex Online" />
+    <meta property="og:description" content="Descubre, busca y explora todos los Pokémon en una experiencia rápida, visual e interactiva. ¡Tu aventura Pokémon comienza aquí!" />
+    <meta property="og:image" content="https://metatags.io/images/meta-tags.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://metatags.io/" />
+    <meta property="twitter:title" content="PokeDexius - Tu Pokédex Online" />
+    <meta property="twitter:description" content="Descubre, busca y explora todos los Pokémon en una experiencia rápida, visual e interactiva. ¡Tu aventura Pokémon comienza aquí!" />
+    <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="PokeDexius" />
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <img src="assets/svg/pokedex-icon.svg" alt="Pokedex Icon" class="nav__pokedex">
+            <img src="assets/svg/menu-icon.svg" alt="Menu Icon" class="nav__menu" id="menu">
+            <div class="sidebar hidden" id="sidebar">
+                <div class="sidebar__close">
+                    <img src="assets/svg/cancel-icon.svg" alt="Close sidebar">
+                </div>
+                <div class="sidebar__profile">
+                    <img src="assets/images/ash-ketchum.webp" alt="Ash Ketchum Profile Avatar" class="profile__avatar">
+                    <div class="profile__content">
+                        <span class="profile__role">WEB VISITOR</span>
+                        <p class="profile__user">Ash Ketchum</p>
+                    </div>
+                </div>
+                <div class="sidebar__line"></div>
+                <div class="sidebar__links">
+                    <h6 class="links__title">DIRECT LINKS</h6>
+                    <ul class="links__list">
+                        <li class="links__item">
+                            <a href="https://github.com/eddiedev14/PokeDexius" target="_blank" class="links__anchor" >
+                                <img src="assets/svg/github-icon.svg" alt="Github Icon" class="links__icon">
+                                Github Repository
+                            </a>
+                        </li>
+                        <li class="links__item">
+                            <a href="#" target="_blank" class="links__anchor">
+                                <img src="assets/svg/portfolio-icon.svg" alt="Portfolio Icon" class="links__icon">
+                                Portfolio
+                            </a>
+                        </li>
+                        <li class="links__item" id="dropdown-button">
+                            <div class="links__anchor">
+                                <img src="assets/svg/design-icon.svg" alt="Design Icon" class="links__icon">
+                                Design Inspiration
+                                <img src="assets/svg/chevron-icon.svg" alt="Chevron Icon" class="links__icon links__icon--dropdown">
+                            </div>
+                        </li>
+                        <li class="links__item--dropdown hidden" id="dropdown">
+                            <ul class="links__dropdown">
+                                <li class="dropdown__item"><a href="https://www.figma.com/design/xN9g1BGEJgK1tIg8vmX9ZE/Pok%C3%A9Dex----A-PokeDex-Website-Design-(Community)?m=auto&t=vlDCKgHi2V1QGMJK-6" target="_blank">Landing Page</a></li>
+                                <li class="dropdown__item"><a href="https://www.figma.com/design/uu76n27ydg7LK0h7rloVcC/Pok%C3%A9dex-(Community)?m=auto&t=vlDCKgHi2V1QGMJK-6" target="_blank">Pokemon Card</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
