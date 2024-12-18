@@ -1,6 +1,13 @@
-import { menuNavbarBtn, closeSidebarBtn, sidebarDropdownBtn } from "./modules/selectores.js";
-import UI from "./modules/classes/UI.js";
+import { menuNavbarBtn, closeSidebarBtn, sidebarDropdownBtn, mainContainer, modalCloseBtn, modal } from "./modules/selectores.js";
+import Sidebar from "./modules/classes/Sidebar.js";
+import Modal from "./modules/classes/Modal.js";
 
-menuNavbarBtn.addEventListener("click", UI.toggleSidebar);
-closeSidebarBtn.addEventListener("click", UI.toggleSidebar);
-sidebarDropdownBtn.addEventListener("click", UI.toggleDropdown);
+//* Sidebar/Navbar
+menuNavbarBtn.addEventListener("click", Sidebar.toggleSidebar);
+closeSidebarBtn.addEventListener("click", Sidebar.toggleSidebar);
+sidebarDropdownBtn.addEventListener("click", Sidebar.toggleDropdown);
+
+//* Modal
+mainContainer.addEventListener("click", Modal.openModal)
+modal.addEventListener("keyup", Modal.closeModal)
+modalCloseBtn.addEventListener("click", Modal.closeModal)

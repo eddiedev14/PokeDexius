@@ -34,6 +34,7 @@ input, select, button label{
 
 .header{
     margin: 0 auto;
+    max-width: 1280px;
 }
 
 .nav{
@@ -233,12 +234,14 @@ input, select, button label{
 /* Hero */
 
 .hero{
-    padding-top: 10px;
+    max-width: 1280px;
+    padding-top: 24px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 16px;
 }
 
 .hero__img{
@@ -248,6 +251,7 @@ input, select, button label{
 
 .hero__search{
     width: 100%;
+    max-width: 500px;
     padding: 0 5px;
 }
 
@@ -257,7 +261,7 @@ input, select, button label{
     gap: 12px;
 }
 
-.form__label{
+.hero__form .form__label{
     font-size: 18px;
     line-height: 12px;
     letter-spacing: 0.2%;
@@ -306,6 +310,8 @@ input, select, button label{
 /* Main Cards */
 
 .main{
+    margin: 0 auto;
+    max-width: 1280px;
     padding-top: 48px;
     display: flex;
     justify-content: center;
@@ -399,6 +405,28 @@ input, select, button label{
     display: flex;
 }
 
+.modal__close{
+    position: fixed;
+    z-index: 30;
+    right: 16px;
+    top: 16px;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: .3s ease-in-out scale;
+}
+
+.modal__close:hover{
+    scale: 1.1;
+}
+
 .modal__card{
     width: 280px;
     background-color: #fff;
@@ -406,6 +434,36 @@ input, select, button label{
     overflow: hidden;
     padding: 16px;
     position: relative;
+}
+
+.modal[open] .modal__card{
+    animation: modalOpen 0.5s ease forwards;
+}
+
+.modal[open] .modal__card.closing {
+    animation: modalClose 0.5s ease forwards;
+}
+
+@keyframes modalOpen {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes modalClose {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.8);
+    }
 }
 
 .modal__background{
@@ -425,7 +483,8 @@ input, select, button label{
 
 .modal__pokemon{
     display: flex;
-    flex-direction: column;}
+    flex-direction: column;
+}
 
 .modal__top{
     display: flex;
@@ -523,6 +582,7 @@ input, select, button label{
 }
 
 .modal__stats{
+    margin-top: 10px;
     display: flex;
 }
 
@@ -540,6 +600,9 @@ input, select, button label{
 }
 
 .stats__values{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     padding-left: 10px;
 }
 
@@ -555,6 +618,7 @@ input, select, button label{
 }
 
 .stat__progress{
+    width: 100%;
     height: 8px;
     appearance: none;
     -webkit-appearance: none;
@@ -632,12 +696,217 @@ input, select, button label{
     -webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-	background: url(https://api.iconify.design/akar-icons/chevron-down.svg) no-repeat center / contain;
-	background-size: 12px;
+	background: url("../assets/svg/chevron-down-icon.svg") no-repeat center / contain;
+	background-size: 16px;
 	background-position: calc(100% - 15px);
     transition: .3s ease-in-out border;
 }
 
 .form__select:focus{
     border: 1px solid var(--dark-gray);
+}
+
+/* Media Queries */
+
+@media screen and (min-width: 744px) {
+    body{
+        padding: 32px 40px;
+    }
+
+    /* NavBar */
+
+    .nav__pokedex{
+        width: 64px;
+    }
+
+    .nav__menu{
+        width: 36px;
+    }
+
+    /* Hero */
+    .hero__form .form__label{
+        font-size: 20px;
+    }
+
+    .form__input{
+        line-height: 18px;
+        font-size: 18px;
+    }
+
+    /* Modal */
+    .modal__close{
+        right: 24px;
+        top: 24px;
+        width: 38px;
+        height: 38px;
+    }
+
+    .modal__close img{
+        width: 24px;
+        height: 24px;
+    }
+    
+    .modal__card{
+        width: 350px;
+        padding: 20px;
+    }
+
+    .modal__name{
+        font-family: var(--retro);
+        font-size: 18px;
+    }
+
+    .modal__id{
+        font-size: 14px;
+    }
+
+    .modal__img{
+        width: 164px;
+    }
+
+    .modal__type{
+        font-size: 14px;
+    }
+    
+    .modal__subtitle{
+        font-size: 16px;
+        margin-bottom: 4px;
+    }
+
+    .modal__description{
+        font-size: 14px;
+    }
+
+    .measure__icon{
+        width: 28px;
+        height: 28px;
+    }
+    
+    .measure__title{
+        font-size: 12px;
+    }
+    
+    .measure__number{
+        font-size: 14px;
+    }
+
+    .stats__names{
+        gap: 2px;
+    }
+    
+    .stats__values{
+        gap: 2px;
+    }
+
+    .stats__names h6{
+        font-size: 12px;
+    }
+    
+    .stat__value{
+        font-size: 12px;
+    }
+    
+    .stat__progress{
+        height: 9px;
+        appearance: none;
+        -webkit-appearance: none;
+    }
+}
+
+@media screen and (min-width: 912px) {
+    /* Modal */    
+    .modal__card{
+        width: 650px;
+        padding: 25px;
+    }
+
+    .modal__background{
+        width: 50%;
+        height: 100%;
+        background-color: var(--primary);
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    .modal__content{
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .modal__pokemon{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .modal__top{
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    
+    .modal__top__pokemon{
+        order: 1;
+    }
+
+    .modal__name{
+        font-size: 24px;
+    }
+    
+    .modal__sound--pop{
+        display: none;
+    }
+    
+    .modal__id{
+        font-size: 15px;
+    }
+
+    .modal__img{
+        width: 220px;
+        padding-bottom: 10px;
+    }
+
+    .modal__types{
+        margin-bottom: 0px;
+    }
+
+    .modal__type{
+        background-color: #fff;
+        color: #000;
+    }
+
+    .modal__info{
+        padding-left: 25px;
+    }
+    
+    .modal__subtitle{
+        font-size: 20px;
+    }
+
+    .modal__description{
+        font-size: 16px;
+    }
+
+    .measure__icon{
+        width: 36px;
+        height: 36px;
+    }
+
+    .stats__names{
+        gap: 4px;
+    }
+    
+    .stats__values{
+        gap: 4px;
+    }
+
+    .stats__names h6{
+        font-size: 14px;
+    }
+    
+    .stat__value{
+        font-size: 14px;
+    }
 }

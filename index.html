@@ -98,7 +98,7 @@
 
     <!-- CARDS -->
 
-    <main class="main">
+    <main class="main" id="main">
         <div class="main__card">
             <span class="card__id" aria-label="Pokémon ID">#001</span>
             <img src="assets/images/bulbasaur.png" alt="Pokémon" class="card__img">
@@ -249,7 +249,10 @@
 
     <!-- MODAL -->
 
-    <dialog class="modal">
+    <dialog class="modal" id="modal">
+        <button type="button" class="modal__close" aria-label="Close Modal">
+            <img src="assets/svg/cancel-icon.svg" alt="Close Icon">
+        </button>
         <div class="modal__card">
             <div class="modal__background"></div>
             <div class="modal__content">
