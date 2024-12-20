@@ -1,30 +1,15 @@
 import { modal, modalAudio, modalCard, modalPokemonDescription, modalPokemonHeight, modalPokemonId, modalPokemonImg, modalPokemonName, modalPokemonTypes, modalPokemonWeight, modalStats } from "../selectores.js";
-import Alert from "./Alert.js";
-import UI from "../classes/UI.js";
-import API from "../api/API.js";
-import PokeDex from "../api/PokeDex.js";
+import UI from "../classes/UI.js";;
 import { formatDescription } from "../funciones.js";
 
 export default class Modal{
-    static loadModal(e){
-        const card = e.target.closest('.main__card');
-        if (!card) { return }
-        
-        //Obtaining the modal pokemon
-        const pokemonID = card.dataset.id;
-        const url = API.URL.pokemonURL + pokemonID + "/";
-        PokeDex.getPokemonInfo(url)
-            .then(data => Modal.showModal(data))
-            .catch(error => new Alert("¡Error!", error.message, "error"))
-    }
-
     static showModal(data){
-        const { id, name, image, description, types, modal: { weight, height, stats, sound } } = data;
+        const { id, name, gifImage, plainImage, description, types, modal: { weight, height, stats, sound } } = data;
 
         //Updating the data in the Modal
-        modalPokemonName.textContent = name;
+        modalPokemonName.textContent = name.split("-").join(" ");
         modalPokemonId.textContent = `#${id}`;
-        modalPokemonImg.src = image;
+        modalPokemonImg.src = gifImage || plainImage || "assets/images/pokeball.webp";
         UI.createPokemonTypes(types, modalPokemonTypes, "modal__type");
         modalPokemonDescription.textContent = formatDescription(description);
         modalPokemonWeight.textContent = weight + " kg";

@@ -414,6 +414,10 @@ input, select, button, label{
     transition: .3s ease-in-out scale;
 }
 
+.main__card.hidden{
+    display: none;
+}
+
 .main__card:hover{
     scale: 1.05;
 }
@@ -762,6 +766,11 @@ input, select, button, label{
     align-items: center;
     cursor: pointer;
     transition: .3s ease-in-out background-color;
+}
+
+.pagination__button:disabled{
+    pointer-events: none;
+    opacity: .5;
 }
 
 .pagination__button:hover{

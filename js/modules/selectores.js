@@ -6,13 +6,24 @@ export const sidebarDropdownBtn = document.querySelector("#dropdown-button");
 export const sidebarDropdown = document.querySelector("#dropdown");
 export const sidebarChevronIcon = document.querySelector(".links__icon--dropdown");
 
+//* Search form
+export const searchForm = document.querySelector("#form");
+export const searchInput = document.querySelector("#search");
+
 //* Cards
 export const cardsWrapper = document.querySelector("#cards");
+export const allCards = cardsWrapper.children;
 export const spinner = document.querySelector("#spinner");
+
+//* Pagination
+export const previousPageBtn = document.querySelector("#prev-page");
+export const nextPageBtn = document.querySelector("#next-page");
+export const pageSelect = document.querySelector("#page");
+export const limitPageLabel = document.querySelector("#limit-page");
 
 //* Modal
 export const modal = document.querySelector("#modal");
-export const modalCard = document.querySelector(".modal__card")
+export const modalCard = document.querySelector(".modal__card");
 export const modalCloseBtn = document.querySelector(".modal__close");
 export const modalPokemonName = document.querySelector(".modal__name");
 export const modalPokemonId = document.querySelector(".modal__id");
@@ -25,7 +36,3 @@ export const modalStats = document.querySelectorAll(".stat__item");
 export const modalAudioBtn = document.querySelector(".modal__sound");
 export const modalMobileAudioBtn = document.querySelector(".modal__sound--pop");
 export const modalAudio = document.querySelector("#audio");
-
-
-//* Pagination
-export const pageSelect = document.querySelector("#page");

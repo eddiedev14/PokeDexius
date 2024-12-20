@@ -1,9 +1,9 @@
-import { cardsWrapper, pageSelect, spinner } from "../selectores.js";
+import { limitPageLabel, cardsWrapper, allCards, pageSelect, spinner } from "../selectores.js";
 import { formatDescription } from "../funciones.js";
 import API from "../api/API.js";
 
 export default class UI{
-    static fillPagesSelect(count){
+    static fillPagesSelect(count, selectedPage){
         const pages = Math.round(count/API.limit);
         
         for (let i = 1; i <= pages; i++) {
@@ -13,19 +13,20 @@ export default class UI{
             pageSelect.appendChild(option);
         }
 
-        pageSelect.firstElementChild.setAttribute("selected", ""); //Select the first option
+        pageSelect.value = selectedPage
+        limitPageLabel.textContent = `of ${pages}`;
     }
 
     static showPokemons(pokemons){
         pokemons.forEach((pokemon, index) => {
-            const card = cardsWrapper.children[index];
-            const { id, name, image, types, description } = pokemon;     
+            const card = allCards[index];
+            const { id, name, gifImage, plainImage, types, description } = pokemon;     
 
             //Updating the data in the UI
             card.dataset.id = id;
             card.querySelector(".card__id").textContent = `#${id}`;
-            card.querySelector(".card__name").textContent = name;
-            card.querySelector(".card__img").src = image;
+            card.querySelector(".card__name").textContent = name.split("-").join(" ");
+            card.querySelector(".card__img").src = gifImage || plainImage || "assets/images/pokeball.webp";
             card.querySelector(".card__description").textContent = formatDescription(description);
 
             //Creating the types element
@@ -33,6 +34,8 @@ export default class UI{
             this.createPokemonTypes(types, typesWrapper, "card__type")
         });
 
+        //Method to handle the visibility of the cards when the response obtains less than 12 pokemons
+        UI.handleCardsVisibility(pokemons.length)
         cardsWrapper.classList.add("show");
         spinner.classList.add("hidden");
     }
@@ -52,6 +55,17 @@ export default class UI{
     static cleanTypesWrapper(wrapper){
         while (wrapper.firstElementChild) {
             wrapper.removeChild(wrapper.firstElementChild);
+        }
+    }
+
+    static handleCardsVisibility(pokemonsCount){
+        const hiddenCards = document.querySelectorAll(".main__card.hidden");
+        if (pokemonsCount < API.limit) {
+            for (let i = pokemonsCount; i < API.limit; i++) {
+                allCards[i].classList.add("hidden");
+            }
+        } else {
+            hiddenCards.forEach(card => card.classList.remove("hidden"));
         }
     }
 }

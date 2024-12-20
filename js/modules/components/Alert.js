@@ -10,11 +10,11 @@ export default class Alert{
         Swal.fire({
             title: this.title,
             text: this.text,
-            icon: this.type,
+            icon: "error",
           }).then((result) => {
             if (result.isConfirmed) {
                 if (this.type === "error") {
-                    window.location.reload();
+                    window.location.href = "index.html";
                 }
             }
         });
