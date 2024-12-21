@@ -31,7 +31,7 @@ export default class UI{
 
             //Creating the types element
             const typesWrapper = card.querySelector(".card__types");
-            this.createPokemonTypes(types, typesWrapper, "card__type")
+            UI.createPokemonTypes(types, typesWrapper, "card__type")
         });
 
         //Method to handle the visibility of the cards when the response obtains less than 12 pokemons
@@ -41,7 +41,7 @@ export default class UI{
     }
 
     static createPokemonTypes(types, wrapper, typeClass){
-        this.cleanTypesWrapper(wrapper);
+        UI.cleanTypesWrapper(wrapper);
 
         types.forEach((type, index) => {
             const typeSpan = document.createElement("SPAN");

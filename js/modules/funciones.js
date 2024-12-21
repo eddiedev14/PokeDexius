@@ -18,7 +18,7 @@ export function startPokedex() {
 
         // Validate if page is not valid (it isn't a number or is lower than 1)
         if (!page || isNaN(page) || page <= 0) {
-            new Alert("¡Error!", "El parámetro de la página no es válido", "error");
+            new Alert("¡Error!", "The query param is not valid", "error");
             return;
         }
 

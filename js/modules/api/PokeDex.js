@@ -21,6 +21,7 @@ export default class PokeDex{
 
     //Get the pokemon list in a range of 12
     static getPokemonList(url){
+        //Hidden the cards and show the spinner
         cardsWrapper.classList.remove("show");
         spinner.classList.remove("hidden");
 
@@ -51,7 +52,6 @@ export default class PokeDex{
                 //Execute all the promises and finally call the UI method
                 Promise.all(promises)
                     .then(pokemonInfo => UI.showPokemons(pokemonInfo))
-                    .catch(error => new Alert("¡Error!", error.message, "error")) //Show error alert
             })
             .catch(error => new Alert("¡Error!", error.message, "error")) //Show error alert
     }
@@ -77,7 +77,7 @@ export default class PokeDex{
                                     sound: pokemonData.cries.latest
                                 }
                             }));
-                    });
+                    })
     }
 
     //Get Pokémon to show in the modal
@@ -85,7 +85,7 @@ export default class PokeDex{
         const url = API.URL.pokemonURL + searchParam + "/";
         PokeDex.getPokemonInfo(url)
             .then(data => Modal.showModal(data))
-            .catch(error => new Alert("¡Error!", error.message, "error"))
+            .catch(error => new Alert("¡Error!", `An error occurred while obtaining the Pokémon Information: ${error.message}`, "error"))
     }
 
     //Function to check the availability of the buttons

@@ -27,8 +27,8 @@ export default class Modal{
     }
 
     static closeModal(e){
-        //Si se accede por teclado y la letra es distinta a Esc retorna
-        if (!e.keyCode === 27) { return }
+        //If the key is different than Esc return the function
+        if (e.keyCode && e.keyCode !== 27) { return }
 
         modalCard.classList.add("closing");
         setTimeout(() => {
