@@ -5,14 +5,16 @@ import API from "../api/API.js";
 export default class UI{
     static fillPagesSelect(count, selectedPage){
         const pages = Math.round(count/API.limit);
+        const fragment = document.createDocumentFragment();
         
         for (let i = 1; i <= pages; i++) {
             const option = document.createElement("OPTION");
             option.textContent = i;
             option.value = i;
-            pageSelect.appendChild(option);
+            fragment.appendChild(option);
         }
 
+        pageSelect.appendChild(fragment)
         pageSelect.value = selectedPage
         limitPageLabel.textContent = `of ${pages}`;
     }
